@@ -4,8 +4,8 @@ services:
     env: docker
     plan: free
     repo: https://github.com/Janson-V-Johnson/n8n
-    dockerfilePath: Dockerfile
-    autoDeploy: false
+    branch: master
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: N8N_BASIC_AUTH_ACTIVE
         value: "true"
@@ -13,9 +13,12 @@ services:
         value: "janson"
       - key: N8N_BASIC_AUTH_PASSWORD
         value: "jansonn8n#@!"
-      - key: N8N_HOST
-        value: n8n.onrender.com
       - key: WEBHOOK_TUNNEL_URL
-        value: https://n8n.onrender.com
+        value: https://n8n-6ui3.onrender.com
+      - key: N8N_HOST
+        value: 0.0.0.0
       - key: N8N_PORT
-        value: "5678"
+        value: 5678
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
